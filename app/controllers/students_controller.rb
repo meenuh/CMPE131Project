@@ -17,10 +17,6 @@ class StudentsController < ApplicationController
     @student = Student.new
   end
 
-  def ownBooks
-    
-  end
-
   # GET /students/1/edit
   def edit
   end
@@ -28,16 +24,11 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
-    @student = Student.new(student_params)
-
-    respond_to do |format|
-      if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
-        format.json { render :show, status: :created, location: @student }
-      else
-        format.html { render :new }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
+    @school = School.find(params[:school_id])
+    if @school.students.create(student_params)
+      redirect_to @school, notice: 'Student was succesfully created.'
+    else
+      redirect_to @school, alert: 'Error creating Student.'
     end
   end
 

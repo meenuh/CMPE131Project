@@ -6,9 +6,37 @@
 </p>
 
 <p>
-  <strong>University</strong>
-  <%= @student.school_id %>
+  <strong>Major</strong>
+  <%= @student.major %>
 </p>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<%= link_to 'Back', @student.school %>
+
+<h2>Add a book:</h2>
+<%= form_for([@student.books.create]) do |f| %>
+    <div class="field">
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :author %><br />
+      <%= f.text_field :author %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+
+<h3>Books</h3>
+<% @student.books.find_each do |b| %>
+    <p>
+      <strong>Name:</strong>
+      <%= b.title %>
+    </p>
+
+    <p>
+      <strong>Author:</strong>
+      <%= b.author %>
+    </p>
+<% end %>
