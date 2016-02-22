@@ -1,5 +1,5 @@
 class Student < ActiveRecord::Base
   belongs_to :school
   
-  has_many :Book
+  has_many :books
 end
