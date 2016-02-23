@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @student.username %>
+</p>
+
+<p>
+  <strong>Major</strong>
+  <%= @student.major %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', @student.school %>
+
+<h2>Add a book:</h2>
+<%= form_for @student.books.build do |f| %>
+    <div class="field">
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :author %><br />
+      <%= f.text_field :author %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+
+<h3>Books</h3>
+<% @student.books.find_each do |b| %>
+    <p>
+      <strong>Name:</strong>
+      <%= b.title %>
+    </p>
+
+    <p>
+      <strong>Author:</strong>
+      <%= b.author %>
+    </p>
+<% end %>

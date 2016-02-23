@@ -12,5 +12,6 @@ class CreateBooks < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index books, :student_id
   end
 end
