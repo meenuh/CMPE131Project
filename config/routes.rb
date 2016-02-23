@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  resources :schools, shallow: true do
-    resources :students
-    resources :books
-  end
+  resources :schools
+  resources :students
+  resources :books
+  resources :sessions
+
+
+  get 'signup', to: 'students#new', as: 'signup'
+
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
 
 
   root 'schools#index'

@@ -14,7 +14,7 @@
 <%= link_to 'Back', @student.school %>
 
 <h2>Add a book:</h2>
-<%= form_for([@student.books.create]) do |f| %>
+<%= form_for @student.books.build do |f| %>
     <div class="field">
       <%= f.label :title %><br />
       <%= f.text_field :title %>

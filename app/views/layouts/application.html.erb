@@ -8,7 +8,16 @@
 </head>
 <body>
 
-<%= yield %>
-
+  <div class="pull-right">
+    <% if current_student %>
+      <%= link_to 'Log Out', logout_path %>
+    <% else %>
+      <%= link_to 'Log in', login_path %> or
+      <%= link_to 'Sign Up', signup_path %>
+    <% end %>
+  </div>
+  <div class = "container">
+    <%= yield %>
+  </div>
 </body>
 </html>
