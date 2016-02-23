@@ -24,8 +24,8 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @student = Student.find(params[:student_id])
-    if @student.books.create(book_params)
+    @student = current_student
+    if current_student.books.create(book_params)
       redirect_to @student, notice: 'Book was succesfully created.'
     else
       redirect_to @post, alert: 'Error creating book.'
