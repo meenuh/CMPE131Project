@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :schools
-  resources :students
+  resources :students do
+    member do
+      get :confirm_email
+    end
+  end
   resources :books
   resources :sessions
 
