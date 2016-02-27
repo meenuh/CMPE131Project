@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 20160227195425) do
     t.string   "university"
     t.string   "major"
     t.integer  "school_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "password_digest"
-    t.boolean  "email_confirmed"
+    t.boolean  "email_confirmed", default: false
     t.string   "confirm_token"
   end
 
