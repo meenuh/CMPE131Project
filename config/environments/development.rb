@@ -6,6 +6,19 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
   config.action_mailer.default_url_options = { :host => 'localhost' }
+  # I recommend using this line to show error
+  config.action_mailer.raise_delivery_errors = true
+  
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.gmail.com',
+    :domain         => 'mail.google.com',
+    :port           => 587,
+    :user_name      => 'fernandohsabolafio@gmail.com',
+    :password       => 'verdaocampeao12',
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+
   # Do not eager load code on boot.
   config.eager_load = false
 

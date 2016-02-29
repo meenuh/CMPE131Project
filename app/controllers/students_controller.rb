@@ -58,16 +58,18 @@ class StudentsController < ApplicationController
     end
   end
 
-  def email_activate
-      self.email_confirmed = true
-      self.confirm_token = nil
-      save!(:validate => false)
-  end
+  # def email_activate
+  #     self.email_confirmed = true
+  #     self.confirm_token = nil
+  #     save!(:validate => false)
+  # end
 
   def confirm_email
     student = Student.find_by_confirm_token(params[:id])
     if student
-      student.email_activate
+      student.email_confirmed = true
+      student.confirm_token = nil
+      student.save
       flash[:success] = "Welcome! Your email has been confirmed.
       Please log in to continue."
       redirect_to login_path
