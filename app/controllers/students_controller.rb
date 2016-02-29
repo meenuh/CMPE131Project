@@ -25,7 +25,11 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
-    if @student.save
+    email = @student.email.partition('@').last
+    school = School.find_by(domain: email)
+    if school && @student.save
+      @student.school_id = school.id
+      @student.save
       StudentMailer.registration_confirmation(@student).deliver
 
       redirect_to root_url, notice: 'Please confirm your email adress!'

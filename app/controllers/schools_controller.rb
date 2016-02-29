@@ -1,5 +1,5 @@
 class SchoolsController < ApplicationController
-  before_action :set_school, only: [:show, :edit, :update, :destroy]
+  before_action :set_school, only: [:edit, :update, :destroy]
   before_action :authenticate_student!
   # GET /schools
   # GET /schools.json
@@ -10,6 +10,7 @@ class SchoolsController < ApplicationController
   # GET /schools/1
   # GET /schools/1.json
   def show
+    @school = School.find_by(id: current_student.school_id)
   end
 
   # GET /schools/new
@@ -40,6 +41,7 @@ class SchoolsController < ApplicationController
   # PATCH/PUT /schools/1
   # PATCH/PUT /schools/1.json
   def update
+    @school = School.find(params[:id])
     respond_to do |format|
       if @school.update(school_params)
         format.html { redirect_to @school, notice: 'School was successfully updated.' }
@@ -54,6 +56,7 @@ class SchoolsController < ApplicationController
   # DELETE /schools/1
   # DELETE /schools/1.json
   def destroy
+    @school = School.find(params[:id])
     @school.destroy
     respond_to do |format|
       format.html { redirect_to schools_url, notice: 'School was successfully destroyed.' }
