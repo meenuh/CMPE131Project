@@ -25,9 +25,20 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
-    if @student.save
-      redirect_to root_url, notice: 'Student was succesfully created.'
+    email = @student.email.partition('@').last
+    school = School.find_by(domain: email)
+    if school
+      if @student.save
+      @student.school_id = school.id
+      @student.save
+      StudentMailer.registration_confirmation(@student).deliver
+
+      redirect_to root_url, notice: 'Please confirm your email adress before login'
+      else
+        render "new"
+      end
     else
+      flash.now.alert = "Sorry, we dont recognize your email domain"
       render "new"
     end
   end
@@ -56,6 +67,27 @@ class StudentsController < ApplicationController
     end
   end
 
+  # def email_activate
+  #     self.email_confirmed = true
+  #     self.confirm_token = nil
+  #     save!(:validate => false)
+  # end
+
+  def confirm_email
+    student = Student.find_by_confirm_token(params[:id])
+    if student
+      student.email_confirmed = true
+      student.confirm_token = nil
+      student.save
+      flash[:success] = "Welcome! Your email has been confirmed.
+      Please log in to continue."
+      redirect_to login_path
+    else
+      flash[:error] = "Sorry. Student does not exist"
+      redirect_to root_url
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
@@ -64,6 +96,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:username, :email, :password, :password_confirmation)
+      params.require(:student).permit(:studentname, :email, :password, :password_confirmation)
     end
 end

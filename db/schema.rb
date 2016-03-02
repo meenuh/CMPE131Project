@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223020807) do
+ActiveRecord::Schema.define(version: 20160229230952) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160223020807) do
     t.integer  "no_of_students"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "domain"
   end
 
   create_table "students", force: :cascade do |t|
@@ -42,9 +43,11 @@ ActiveRecord::Schema.define(version: 20160223020807) do
     t.string   "university"
     t.string   "major"
     t.integer  "school_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "password_digest"
+    t.boolean  "email_confirmed", default: false
+    t.string   "confirm_token"
   end
 
   add_index "students", ["school_id"], name: "index_students_on_school_id"
