@@ -27,13 +27,18 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     email = @student.email.partition('@').last
     school = School.find_by(domain: email)
-    if school && @student.save
+    if school
+      if @student.save
       @student.school_id = school.id
       @student.save
       StudentMailer.registration_confirmation(@student).deliver
 
-      redirect_to root_url, notice: 'Please confirm your email adress!'
+      redirect_to root_url, notice: 'Please confirm your email adress before login'
+      else
+        render "new"
+      end
     else
+      flash.now.alert = "Sorry, we dont recognize your email domain"
       render "new"
     end
   end
