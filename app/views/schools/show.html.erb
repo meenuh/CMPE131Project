@@ -2,7 +2,7 @@
 
 <div class="page-header">
   <h1><%= @school.name %></h1>
-  <h2>Welcome <%= current_student.username %></h2>
+  <h2>Welcome <%= current_student.name %></h2>
 </div>
 
 <p>
@@ -27,7 +27,7 @@
   <tbody>
   <% @school.students.find_each do |s| %>
       <tr>
-        <td><%= s.username %></td>
+        <td><%= s.name %></td>
         <td><%= s.major %></td>
         <td><%= link_to 'Show', s %></td>
         <td><%= link_to 'Edit', edit_student_path(s) %></td>
