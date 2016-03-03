@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'profile', to: 'students#show', as: 'profile'
 
+  get 'addbook', to: 'books#new', as: 'addbook'
+
 
 
   root 'schools#show'
