@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :books
   resources :sessions
 
+  match 'search', to: 'books#search', via: :get
+
+#  get 'search', to: 'book#search', as: 'search'
+
 
   get 'signup', to: 'students#new', as: 'signup'
 

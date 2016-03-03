@@ -8,7 +8,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost' }
   # I recommend using this line to show error
   config.action_mailer.raise_delivery_errors = true
-  
+
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.gmail.com',
     :domain         => 'mail.google.com',
@@ -18,6 +18,9 @@ Rails.application.configure do
     :authentication => :plain,
     :enable_starttls_auto => true
   }
+
+  config.gem "binarylogic-searchlogic", :lib => "searchlogic"
+  config.gem 'will_paginate', :version => '~> 2.3.11'
 
   # Do not eager load code on boot.
   config.eager_load = false

@@ -13,17 +13,22 @@
 
  <%= link_to 'Add a Book', addbook_path, class: "btn btn-default"  %>
 
-<h3>Books</h3>
+
+
+<h3>Recently posted Books</h3>
 <% @school.students.each do |s| %>
     <% s.books.find_each do |b| %>
-        <p>
-          <strong>Name:</strong>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
           <%= b.title %>
-        </p>
-
-        <p>
-          <strong>Author:</strong>
-          <%= b.author %>
-        </p>
+        </h3>
+        <h5> posted by <%= b.student.name %>
+      </div>
+      <div class="panel-body">
+       <h4><strong>Author:</strong> <%= b.author %> </h4>
+       <h5><strong>Price:</strong> $<%=  b.price %> </h4>
+      </div>
+    </div>
     <% end %>
 <% end %>

@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 
+gem 'binarylogic-searchlogic'
+gem 'will_paginate', '~> 3.1.0'
+
 gem 'mandrill-api'
 
 gem 'bcrypt', '~> 3.1.7'
