@@ -9,6 +9,7 @@ class Student < ActiveRecord::Base
   has_secure_password
 
   validates :email, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 
   private
   def confirmation_token
