@@ -3,17 +3,22 @@
 <div class="page-header">
   <h1><%= @school.name %></h1>
   <h2>Welcome <%= current_student.name %></h2>
+  <p>
+    <strong><%= @school.students.count %></strong> students from your university are using BookBag!
+
+  </p>
 </div>
 
-<p>
-  <strong>Students counting:</strong>
-  <%= @school.students.count %>
-</p>
+
+      <div style = " margin: 0 auto; text-align: center;  "> <%= link_to 'Add a Book', addbook_path, class: "btn btn-success btn-lg", style: "color: #ffffff;" %></div>
 
 
- <%= link_to 'Add a Book', addbook_path, class: "btn btn-default"  %>
 
 
+
+
+<br></br>
+<br></br>
 
 <h3>Recently posted Books</h3>
 <% @school.students.each do |s| %>

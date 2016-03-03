@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body >
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,8 +26,8 @@
     <p>
       <%= form_tag url_for(:controller => 'books', :action => 'search'), class:"navbar-form navbar-left", :method => 'get' do |f| %>
 
-      <%= text_field_tag :search, params[:search], :id => 'search_field' %>
-      <%= submit_tag "Search", :name => nil %> 
+      <%= text_field_tag :search, params[:search], :id => 'search_field', placeholder: "Search for a book" %>
+      <%= submit_tag "Search",class:"btn btn-default", :name => nil %>
       <% end %>
     </p>
 

@@ -1,22 +1,23 @@
-<h1>New Book</h1>
+<div class="page-header">
+  <h1>Add new book</h1>
+</div>
 
-<h2>Add a book:</h2>
 <%= form_for current_student.books.build do |f| %>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :title %><br />
-      <%= f.text_field :title %>
+      <%= f.text_field :title, class:"form-control"  %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :author %><br />
-      <%= f.text_field :author %>
+      <%= f.text_field :author, class:"form-control"  %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :price %><br/>
-      <%= f.number_field :price %>
+      <%= f.number_field :price, class:"form-control"  %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit%>
     </div>
 <% end %>
-
-<%= link_to 'Back', books_path %>
+<br></br>
+<%= link_to 'Back', books_path, class: "btn btn-default" %>
