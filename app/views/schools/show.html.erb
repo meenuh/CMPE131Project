@@ -28,7 +28,7 @@
         <h3 class="panel-title">
           <%= b.title %>
         </h3>
-        <h5> posted by <%= b.student.name %>
+        <h5> posted by <%= link_to b.student.name, student_path(b.student) %>
       </div>
       <div class="panel-body">
        <h4><strong>Author:</strong> <%= b.author %> </h4>
