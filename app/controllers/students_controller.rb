@@ -10,7 +10,13 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-    @student = current_student
+    
+      if params[:profile]
+        @student = current_student
+      else
+        @student = Student.find(params[:id])
+      end
+
   end
 
   # GET /students/new
