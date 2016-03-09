@@ -1,40 +1,26 @@
 def kmp_search(s, w)
-  m = i = 0
-  slen = s.length
-  wlen = w.length
+  s_local = s.clone
+  w_local = w.clone
+  s_local.downcase!
+  w_local.downcase!
+  m = 0
+  i= 0
+  slen = s_local.length
+  wlen = w_local.length
   plen = 0
-  t = kmp_table(w)
-  while m+i < slen
-    if w[i] == s[m+i]
+  while m < slen
+    if w_local[i] == s_local[m]
       i += 1
       plen = [plen, i].max
+      if i == wlen
+        return plen
+      end
     else
-      m += i - t[i]
-      i = [0, t[i]].max
+      i = 0
     end
+    m += 1
   end
-  plen
+  return plen
 end
 
-
-def kmp_table(w)
-  pos = 2
-  cnd = 0
-  t = [-1, 0]
-  wlen = w.length
-  while pos < wlen
-    if w[pos-1] == w[cnd]
-      cnd += 1
-      t[pos] = cnd
-      pos += 1
-    elsif cnd > 0
-      cnd = t[cnd]
-    else
-      t[pos] = 0
-      pos += 1
-    end
-  end
-  t
-end
-
-puts kmp_search("Introduction to Stochastic Processes", 'Stocticzzz')
+puts kmp_search("Introduction to Stochastic Processes", 'tes')

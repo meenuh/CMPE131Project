@@ -62,7 +62,20 @@ class BooksController < ApplicationController
   def search
      logger.debug " AEEEEEEEEEEE #{params[:search].to_s}"
     #search = Book.find_by(title: params[:search].to_s)
-    search = kmp_search(@book.title, params[:search].to_s) #Book.where('title = ?', params[:search])
+    array = []
+    Book.find_each do |b|
+        score = kmp_search(b.title, params[:search].to_s) #Book.where('title = ?', params[:search])
+        if score > 1
+          array.push({:book => b, :score => -score})
+        end
+    end
+    res = array.sort_by do |item|
+      item[:score]
+    end
+    search = []
+    res.each do |el|
+      search.push(el[:book])
+    end
     logger.debug "#{params[:search].to_s}"
     if search
       @books = search
