@@ -1,4 +1,5 @@
 require 'json'
+require 'prefix_function'
 
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
@@ -61,7 +62,7 @@ class BooksController < ApplicationController
   def search
      logger.debug " AEEEEEEEEEEE #{params[:search].to_s}"
     #search = Book.find_by(title: params[:search].to_s)
-    search = Book.where('title = ?', params[:search])
+    search = kmp_search(@book.title, params[:search].to_s) #Book.where('title = ?', params[:search])
     logger.debug "#{params[:search].to_s}"
     if search
       @books = search
