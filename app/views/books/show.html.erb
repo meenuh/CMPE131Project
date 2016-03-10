@@ -9,9 +9,14 @@
   </div>
   <div class="panel-body">
     <h4><strong>Author:</strong> <%= @book.author %> </h4>
+    <h4><strong>ISBN:</strong> <%= @book.isbn %> </h4>
+    <h4><strong>Class:</strong> <%= @book.class_for %> </h4>
     <h5><strong>Price:</strong> $<%=  @book.price %> </h4>
   </div>
 </div>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', @book.student %>
+<br></br>
+<% if @book.student == current_student %>
+<%= link_to 'Edit', edit_book_path(@book), class: "btn btn-default" %>
+<% end %>
+<%= link_to 'Back', current_student, class: "btn btn-default" %>

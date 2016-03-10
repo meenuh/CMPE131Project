@@ -24,6 +24,18 @@
           <%= f.label :author %><br>
           <%= f.text_field :author %>
         </div> </h4>
+        <h4>  <div class="field">
+          <%= f.label :isbn %><br>
+          <%= f.number_field :isbn %>
+        </div> </h4>
+        <h4>  <div class="field">
+          <%= f.label :edition %><br>
+          <%= f.number_field :edition %>
+        </div> </h4>
+        <h4>  <div class="field">
+          <%= f.label :class_for %><br>
+          <%= f.text_field :class_for %>
+        </div> </h4>
         <h5><strong>Price:</strong> $<%=  @book.price %> </h4>
       </div>
     </div>
