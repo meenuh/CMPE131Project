@@ -11,16 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :school_id %><br>
-    <%= f.number_field :school_id %>
-  </div>
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :major %><br>
+      <%= f.text_field :major %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </div>
 
-  <div class="actions">
+
+    <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

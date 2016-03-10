@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>Profile</h1>
+</div>
 
 <p>
   <strong>Name:</strong>
@@ -6,8 +8,18 @@
 </p>
 
 <p>
-  <strong>Major</strong>
+  <strong>Major:</strong>
   <%= @student.major %>
+</p>
+
+<p>
+  <strong>Email Adress:</strong>
+  <%= @student.email %>
+</p>
+
+<p>
+  <strong>University:</strong>
+  <%= @student.university %>
 </p>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
@@ -15,15 +27,19 @@
 
 
 
-<h3>Books</h3>
+<h3><%= @student.name %>'s Books</h3>
 <% @student.books.find_each do |b| %>
-    <p>
-      <strong>Name:</strong>
-      <%= b.title %>
-    </p>
-
-    <p>
-      <strong>Author:</strong>
-      <%= b.author %>
-    </p>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= b.title %>
+        </h3>
+        <h5> posted by <%= link_to b.student.name, student_path(b.student) %>
+      </div>
+      <div class="panel-body">
+        <h4><strong>Author:</strong> <%= b.author %> </h4>
+        <h5><strong>Price:</strong> $<%=  b.price %> </h4>
+          <%= link_to 'Edit', edit_book_path(b) %>
+      </div>
+    </div>
 <% end %>
