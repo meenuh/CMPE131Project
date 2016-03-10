@@ -22,8 +22,9 @@
   <%= @student.university %>
 </p>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', @student.school %>
+<% if @student == current_student %>
+  <%= link_to 'Edit', edit_student_path(@student), class: "btn btn-default" %>
+<% end %>
 
 
 
@@ -39,7 +40,12 @@
       <div class="panel-body">
         <h4><strong>Author:</strong> <%= b.author %> </h4>
         <h5><strong>Price:</strong> $<%=  b.price %> </h4>
+          <% if @student == current_student %>
           <%= link_to 'Edit', edit_book_path(b) %>
+          <% end %>
       </div>
     </div>
 <% end %>
+
+
+<%= link_to 'Back', @student.school, class: "btn btn-default" %>
