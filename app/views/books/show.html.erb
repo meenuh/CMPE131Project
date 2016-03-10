@@ -1,19 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @book.title %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
-
-<p>
-  <strong>Student ID:</strong>
-  <%= @book.student_id %>
-</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= @book.title %>
+    </h3>
+    <h5> posted by <%= link_to @book.student.name, student_path(@book.student) %>
+  </div>
+  <div class="panel-body">
+    <h4><strong>Author:</strong> <%= @book.author %> </h4>
+    <h5><strong>Price:</strong> $<%=  @book.price %> </h4>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', @book.student %>
