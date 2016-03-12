@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:edit, :update, :destroy]
-
+  before_action :authenticate_student!
   # GET /students
   # GET /students.json
   def index
@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-    
+
       if params[:profile]
         @student = current_student
       else
@@ -26,6 +26,9 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+    if @student != current_student
+      redirect_to root_url
+    end
   end
 
   # POST /students
