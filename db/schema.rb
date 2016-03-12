@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303024947) do
+ActiveRecord::Schema.define(version: 20160312230506) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20160303024947) do
     t.integer  "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float    "price"
   end
 
   add_index "books", ["student_id"], name: "index_books_on_student_id"
@@ -52,5 +51,18 @@ ActiveRecord::Schema.define(version: 20160303024947) do
   end
 
   add_index "students", ["school_id"], name: "index_students_on_school_id"
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "buyer_id"
+    t.integer  "seller_id"
+    t.integer  "book_id"
+    t.float    "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "transactions", ["book_id"], name: "index_transactions_on_book_id"
+  add_index "transactions", ["buyer_id"], name: "index_transactions_on_buyer_id"
+  add_index "transactions", ["seller_id"], name: "index_transactions_on_seller_id"
 
 end

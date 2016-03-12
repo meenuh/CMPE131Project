@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :books
   resources :sessions
+  resources :transactions
 
   match 'search', to: 'books#search', via: :get
 
