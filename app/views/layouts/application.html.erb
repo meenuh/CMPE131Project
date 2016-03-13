@@ -3,53 +3,63 @@
 <head>
   <title>BookBag</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'styles.css' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body >
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">BookBag</a>
-    </div>
+  <header>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <% if current_student %>
-    <p>
-      <%= form_tag url_for(:controller => 'books', :action => 'search'), class:"navbar-form navbar-left", :method => 'get' do |f| %>
+  	<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="UserController as userCtrl">
+  		<div class="container-fluid">
 
-      <%= text_field_tag :search, params[:search], :id => 'search_field', placeholder: "Search for a book" %>
-      <%= submit_tag "Search",class:"btn btn-default", :name => nil %>
-      <% end %>
-    </p>
+  			<!-- Brand and toggle get grouped for better mobile display -->
+  			<div class="navbar-header">
+  				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+  					<span class="sr-only">Toggle navigation</span>
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  				</button>
+  				<a class="navbar-brand" href="#">
+  					<!-- <img alt="Brand" src="/app/assets/images/bookbag.png"> -->
+            BookBag
+  				</a>
+  			</div>
 
-    <% end %>
-      <ul class="nav navbar-nav navbar-right">
+  			<!-- Collect the nav links, forms, and other content for toggling -->
+  			<div class="collapse navbar-collapse navbar-ex1-collapse">
 
-        <% if current_student %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Profile', profile_path(:profile => true )%></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to 'Log Out', logout_path %></li>
-            </ul>
-          </li>
-        <% else %>
-          <li> <%= link_to 'Sign Up', signup_path %> </li>
-        <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+  				<ul class="nav navbar-nav navbar-right">
+  					<% if current_student %>
+  						<li class="dropdown">
+  							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+  								<img src="http://placehold.it/24x24" class="profile-image img-circle"> <%- current_student.name %> <span class="caret"></span>
+  							</a>
+  							<ul class="dropdown-menu">
+  								<li><%= link_to 'Profile', profile_path(:profile => true )%></li>
+  								<li><a href="#">Another action</a></li>
+  								<li><a href="#">Something else here</a></li>
+  								<li role="separator" class="divider"></li>
+  								<li>
+  								  <%= link_to 'Log Out', logout_path %>
+  								</li>
+  							</ul>
+  						</li>
+  					<% else %>
+  						<li><a href="/login">Signin</a></li>
+  						<li>  <%= link_to 'Register', signup_path %></li>
+  					<% end %>
+  					<li><a href="#">About</a></li>
+  				</ul>
+
+  			</div><!-- /.navbar-collapse -->
+
+  		</div>
+  	</nav>
+
+  </header>
+
 
   <div class="container">
 
@@ -63,7 +73,15 @@
 
 
 
-    <%= yield %>
+
   </div>
+    <%= yield %>
+
+    <footer class="center-text">
+        <hr>
+        <div style="text-align: center;">
+            Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+        </div>
+    </footer>
 </body>
 </html>

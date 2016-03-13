@@ -1,41 +1,25 @@
 
 
-<div class="page-header">
-  <h1><%= @school.name %></h1>
-  <h2>Welcome <%= current_student.name %></h2>
-  <p>
-    <strong><%= @school.students.count %></strong> students from your university are using BookBag!
 
-  </p>
-</div>
+  <div class="jumbotron jumbotron-fluid">
+		<div class="container-fluid">
+
+            <h2>Welcome to <%= current_student.school.name %></h2>
 
 
-      <div style = " margin: 0 auto; text-align: center;  "> <%= link_to 'Add a Book', addbook_path, class: "btn btn-success btn-lg", style: "color: #ffffff;" %></div>
+        <%= form_tag url_for(:controller => 'books', :action => 'search'), class:"form-group input-group center-block", style:"max-width: 400px;", :method => 'get' do |f| %>
+        <%= text_field_tag :search, params[:search], :id => 'search_field',class: "form-control", placeholder: "Search for a book" %>
 
+        <%= submit_tag 'Go!',class:"btn btn-success",style: "margin: 10px;", :name => nil %>
+        <% end %>
+      
+      <h5> or </h5>
+      <div style = " margin: 0 auto; text-align: center;  "> <%= link_to 'Sell a book!', addbook_path, class: "btn btn-success", style: "color: #ffffff;" %></div>
 
-
-
-
-
-<br></br>
-<br></br>
+		</div>
+	</div>
 
 <h3>Recently posted Books</h3>
 <% @school.students.each do |s| %>
-    <% s.books.find_each do |b| %>
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <%= b.title %>
-        </h3>
-        <h5> posted by <%= link_to b.student.name, student_path(b.student) %>
-      </div>
-      <div class="panel-body">
-       <h4><strong>Author:</strong> <%= b.author %> </h4>
-        <h4><strong>ISBN:</strong> <%= b.isbn %> </h4>
-        <h4><strong>Class:</strong> <%= b.class_for %> </h4>
-       <h5><strong>Price:</strong> $<%=  b.price %> </h4>
-      </div>
-    </div>
-    <% end %>
+    <%= render s.books %>
 <% end %>
