@@ -39,9 +39,12 @@
       </div>
       <div class="panel-body">
         <h4><strong>Author:</strong> <%= b.author %> </h4>
+        <h4><strong>ISBN:</strong> <%= b.isbn %> </h4>
+        <h4><strong>Class:</strong> <%= b.class_for %> </h4>
+        <h4><strong>Price:</strong> $<%=  b.price %> </h4>
 
           <% if @student == current_student %>
-          <%= link_to 'Edit', edit_book_path(b) %>
+            <%= link_to 'Edit', edit_book_path(b),  class: "btn btn-default" %>
           <% end %>
       </div>
     </div>
