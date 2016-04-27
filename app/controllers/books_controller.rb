@@ -60,7 +60,7 @@ class BooksController < ApplicationController
   end
 
   def search
-     logger.debug " AEEEEEEEEEEE #{params[:search].to_s}"
+     
     #search = Book.find_by(title: params[:search].to_s)
     array = []
     Book.find_each do |b|
@@ -79,7 +79,7 @@ class BooksController < ApplicationController
     logger.debug "#{params[:search].to_s}"
     if search
       @books = search
-        logger.debug "VALOR DO BOOK MANO#{@books}"
+
       render 'search'
     else
       redirect_to root_url, notice: "No results were found"

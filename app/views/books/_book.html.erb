@@ -20,7 +20,7 @@
   <h4 class="card-title"> <%= book.title %></h4>
   <p class="card-text"><strong>Author:</strong> <%= book.author %> </p>
   <p class="card-text"><strong>Price:</strong> $10,00 </p>
-  <a href="#" class="btn btn-primary">See more</a>
+  <div style = " margin: 0 auto;  "> <%= link_to 'Select', sellbook_path(:book_id => book.id, :book_title => book.title), class: "btn btn-success", style: "color: #ffffff;" %></div>
 </div>
 <!-- <div class="card">
   <img class="card-img-top" data-src= "http://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="Card image cap">

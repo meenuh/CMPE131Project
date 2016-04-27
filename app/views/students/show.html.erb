@@ -25,27 +25,26 @@
 <% if @student == current_student %>
   <%= link_to 'Edit', edit_student_path(@student), class: "btn btn-default" %>
 <% end %>
-
-
-
 <h3><%= @student.name %>'s Books</h3>
-<% @student.books.find_each do |b| %>
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <%= b.title %>
-        </h3>
-        <h5> posted by <%= link_to b.student.name, student_path(b.student) %>
-      </div>
-      <div class="panel-body">
-        <h4><strong>Author:</strong> <%= b.author %> </h4>
+<div class="container-fluid">
+  <h3>Recently posted Books</h3>
+  <div class="album text-muted">
+       <div class="container">
 
-          <% if @student == current_student %>
-          <%= link_to 'Edit', edit_book_path(b) %>
-          <% end %>
+         <div class="row">
+
+             <%= render @student.transactions %>
+
+
+        </div>
       </div>
-    </div>
-<% end %>
+
+  </div>
+
+</div>
+
+
+
 
 
 <%= link_to 'Back', @student.school, class: "btn btn-default" %>

@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>New Book Sale</h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><strong>Step 1</strong>  -  Search and select a Book</h3>
+    </div>
+    <div class="panel-body">
+      <% if params[:book_id]%>
+        <h4><%= @book_name %></h4>
+         <div style = " margin: 0 auto;  "> <%= link_to 'Edit', sellbook_path, class: "btn btn-success", style: "color: #ffffff;" %></div>
+      <% else %>
+        <%= form_tag url_for(:controller => 'books', :action => 'search'), class:"form-group input-group ", style:"max-width: 400px;", :method => 'get' do |f| %>
+        <%= text_field_tag :search, params[:search], :id => 'search_field',class: "form-control", placeholder: "Search for a book" %>
+
+        <%= submit_tag 'Go!',class:"btn btn-success",style: "margin: 10px;", :name => nil %>
+        <% end %>
+        <h4><strong>Or</strong></h4>  <div style = " margin: 0 auto;  "> <%= link_to 'Add a new Book', addbook_path, class: "btn btn-success", style: "color: #ffffff;" %></div>
+      <% end %>
+
+
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><strong>Step 2</strong>   - Book Information</h3>
+    </div>
+    <div class="panel-body">
+      <%= form_for current_student.transactions.build do |f| %>
+
+          <div class="form-group">
+            <%= f.label :price %><br/>
+            <%= f.number_field :price, class:"form-control"  %>
+            <%= f.hidden_field :book_id, :value => params[:book_id] %>
+
+          </div>
+
+          <div class="actions">
+            <%= f.submit%>
+          </div>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
