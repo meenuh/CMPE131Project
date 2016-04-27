@@ -1,4 +1,4 @@
-
+<!--
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title">
@@ -6,10 +6,27 @@
     </h3>
     <h5> posted by <%= link_to book.student.name, student_path(book.student) %>
   </div>
+
+  <img src=  "http://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="">
   <div class="panel-body">
    <h4><strong>Author:</strong> <%= book.author %> </h4>
     <h4><strong>ISBN:</strong> <%= book.isbn %> </h4>
     <h4><strong>Class:</strong> <%= book.class_for %> </h4>
 
   </div>
+</div> -->
+<div class="card">
+  <img src= "http://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="Card image cap">
+  <h4 class="card-title"> <%= book.title %></h4>
+  <p class="card-text"><strong>Author:</strong> <%= book.author %> </p>
+  <p class="card-text"><strong>Price:</strong> $10,00 </p>
+  <a href="#" class="btn btn-primary">See more</a>
 </div>
+<!-- <div class="card">
+  <img class="card-img-top" data-src= "http://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="Card image cap">
+  <div class="card-block">
+
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Button</a>
+  </div>
+</div> -->
