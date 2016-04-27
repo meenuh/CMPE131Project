@@ -14,19 +14,21 @@
         <% end %>
 
       <h5> or </h5>
-      <div style = " margin: 0 auto; text-align: center;  "> <%= link_to 'Sell a book!', addbook_path, class: "btn btn-success", style: "color: #ffffff;" %></div>
+      <div style = " margin: 0 auto; text-align: center;  "> <%= link_to 'Sell a book!', sellbook_path, class: "btn btn-success", style: "color: #ffffff;" %></div>
 
 		</div>
 	</div>
+  <div class="container-fluid">
     <h3>Recently posted Books</h3>
-  <div class="album text-muted">
-       <div class="container">
+    <div class="album text-muted">
+         <div class="container">
 
-         <div class="row">
-           <% @school.students.each do |s| %>
-           <%= render s.books %>
-           <% end %>
+           <div class="row">
+             <% @school.students.each do |s| %>
+             <%= render s.books %>
+             <% end %>
+           </div>
+
          </div>
-
        </div>
-     </div>
+  </div>

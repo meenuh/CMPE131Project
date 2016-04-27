@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'profile', to: 'students#show', as: 'profile'
 
   get 'addbook', to: 'books#new', as: 'addbook'
+  get 'sellbook', to: 'transactions#new', as: 'sellbook'
 
 
 
