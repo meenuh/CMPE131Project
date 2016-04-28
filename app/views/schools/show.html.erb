@@ -7,7 +7,7 @@
             <h2>Welcome to <%= current_student.school.name %></h2>
 
 
-        <%= form_tag url_for(:controller => 'books', :action => 'search'), class:"form-group input-group center-block", style:"max-width: 400px;", :method => 'get' do |f| %>
+        <%= form_tag url_for(:controller => 'transactions', :action => 'search'), class:"form-group input-group center-block", style:"max-width: 400px;", :method => 'get' do |f| %>
         <%= text_field_tag :search, params[:search], :id => 'search_field',class: "form-control", placeholder: "Search for a book" %>
 
         <%= submit_tag 'Go!',class:"btn btn-success",style: "margin: 10px;", :name => nil %>

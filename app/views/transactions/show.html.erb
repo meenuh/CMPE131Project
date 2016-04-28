@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+curr_book = @transaction.book_id
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%=  %>
+    </h3>
+    <h5> posted by <%= link_to curr_book.student.name, student_path(curr_book.student) %> </h5>
+  </div>
+  render curr_book
+</div>
+<div class="panel-body">
+  <h4><strong>Price:</strong> <%= @transaction.price %> </h4>
+</div>
+
