@@ -22,5 +22,3 @@ def kmp_search(s, w)
   end
   return plen
 end
-
-puts kmp_search("Introduction to Stochastic Processes", 'tes')

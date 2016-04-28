@@ -60,7 +60,7 @@ class BooksController < ApplicationController
   end
 
   def search
-     
+
     #search = Book.find_by(title: params[:search].to_s)
     array = []
     Book.find_each do |b|
@@ -85,32 +85,6 @@ class BooksController < ApplicationController
       redirect_to root_url, notice: "No results were found"
     end
 
-    # logger.debug "AEEE"
-    # if request.post?
-    #
-    #   #pass the book into a get with the 'q' param
-    #   redirect_to search_books_path(:q => params[:search][:query])
-    #
-    # elsif request.get?
-    #
-    #   unless params[:q].blank?
-    #
-    #     #Searchlogics title_like_all to search within titles in the Book model for any of the words in the query.
-    #     #words in the string are split into an array by spaces
-    #     search = Book.title_like_all(params[:q].to_s.split).descend_by_created_at
-    #
-    #     #paginate the results
-    #     @books = search.paginate(:per_page => 25, :page => params[:page])
-    #
-    #     #pass the query object to the view to let the user know what they searched for
-    #     @query = params[:q]
-    #
-    #   end
-    #
-    #   #render the Book index.html.erb
-    #   render 'index'
-    #
-    # end
   end
 
   private

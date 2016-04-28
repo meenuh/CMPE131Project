@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :sessions
   resources :transactions
 
-  match 'search', to: 'books#search', via: :get
+  match 'bsearch', to: 'books#search', via: :get
+  match 'tsearch', to: 'transactions#search', via: :get
 
 #  get 'search', to: 'book#search', as: 'search'
 
