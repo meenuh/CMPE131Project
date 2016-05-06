@@ -22,10 +22,9 @@
     <h3>Recently posted Books</h3>
     <div class="album text-muted">
          <div class="container">
-
            <div class="row">
              <% @school.students.each do |s| %>
-             <%= render s.books %>
+             <%= render s.transactions %>
              <% end %>
            </div>
 
