@@ -21,9 +21,11 @@
   					<span class="icon-bar"></span>
   					<span class="icon-bar"></span>
   				</button>
-  				<a class="navbar-brand" href="#">
+  				<a type="button" class="navbar-brand">
   					<!-- <img alt="Brand" src="/app/assets/images/bookbag.png"> -->
-            BookBag
+            <% if current_student %>
+            <%= link_to 'BookBag', current_student.school, class: "btn btn-default"%>
+            <% end %>
   				</a>
   			</div>
 

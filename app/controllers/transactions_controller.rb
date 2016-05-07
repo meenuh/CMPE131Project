@@ -12,12 +12,27 @@ class TransactionsController < ApplicationController
     end
   end
 
+
   def create
 
     if current_student.transactions.create(transaction_params)
       redirect_to current_student, notice: 'Your books is now on sale'
     else
       render new, alert: 'Error creating book.'
+    end
+  end
+
+def buy
+
+end
+
+
+  def destroy
+
+    @transaction.destroy
+    respond_to do |format|
+      format.html { redirect_to transaction_url, notice: 'Transaction was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 

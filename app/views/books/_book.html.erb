@@ -12,11 +12,13 @@
    <h4><strong>Author:</strong> <%= book.author %> </h4>
     <h4><strong>ISBN:</strong> <%= book.isbn %> </h4>
     <h4><strong>Class:</strong> <%= book.class_for %> </h4>
-    <h4><strong>Price:</strong> $<%=  book.price %> </h4>
   </div>
 </div> -->
 <div class="card">
-  <img src= "http://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="Card image cap">
+  <img  src= "http://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="Card image cap">
+  <object data="http://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" type="image/jpg">
+    <img src="/assets/images/defaultBook.jpg" />
+  </object>
   <h4 class="card-title"> <%= book.title %></h4>
   <p class="card-text"><strong>Author:</strong> <%= book.author %> </p>
 

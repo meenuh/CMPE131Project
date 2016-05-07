@@ -22,13 +22,13 @@
     <h3>Recently posted Books</h3>
     <div class="album text-muted">
          <div class="container">
-
            <div class="row">
              <% @school.students.each do |s| %>
-             <%= render s.books %>
+                 <% if s != current_student %>
+                     <%= render s.transactions %>
+                 <% end %>
              <% end %>
            </div>
-
          </div>
        </div>
   </div>
