@@ -1,6 +1,12 @@
 <div class="card">
-  <img src= "http://covers.openlibrary.org/b/isbn/<%= transaction.book.isbn %>-M.jpg" alt="Card image cap">
+  <img src= "http://covers.openlibrary.org/b/isbn/<%= transaction.book.isbn %>-M.jpg" alt="Card image cap" height="220" width="150">
   <h4 class="card-title"> <%= transaction.book.title %></h4>
   <p class="card-text"><strong>Author:</strong> <%= transaction.book.author %> </p>
   <p class="card-text"><strong>Price:</strong> <%= transaction.price %> </p>
+  <p class="card-text"><strong>posted by:</strong> <%= link_to transaction.book.student.name, student_path(transaction.book.student) %> </p>
+  <% if @student == current_student %>
+      </td><%= link_to 'Delete', transaction, method: :destroy, data: {confirm: 'Are you sure?'}, class: "btn btn-default" %></td>
+  <% else %>
+      <div style = " margin: 0 auto;  "> <%= link_to 'Buy', buybook_path(), class: "btn btn-success", style: "color: #ffffff;" %></div>
+  <% end %>
 </div>

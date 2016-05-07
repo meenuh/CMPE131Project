@@ -17,34 +17,21 @@
   <%= @student.email %>
 </p>
 
-<p>
-  <strong>University:</strong>
-  <%= @student.university %>
-</p>
-
 <% if @student == current_student %>
-  <%= link_to 'Edit', edit_student_path(@student), class: "btn btn-default" %>
+    <%= link_to 'Edit', edit_student_path(@student), class: "btn btn-default" %>
+    <h3>My Books</h3>
+<% else %>
+    <h3><%= @student.name %>'s Books</h3>
 <% end %>
-<h3><%= @student.name %>'s Books</h3>
+
 <div class="container-fluid">
-  <h3>Recently posted Books</h3>
   <div class="album text-muted">
        <div class="container">
-
          <div class="row">
-
              <%= render @student.transactions %>
-
-
         </div>
       </div>
-
   </div>
-
 </div>
-
-
-
-
 
 <%= link_to 'Back', @student.school, class: "btn btn-default" %>

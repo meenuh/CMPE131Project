@@ -24,10 +24,11 @@
          <div class="container">
            <div class="row">
              <% @school.students.each do |s| %>
-             <%= render s.transactions %>
+                 <% if s != current_student %>
+                     <%= render s.transactions %>
+                 <% end %>
              <% end %>
            </div>
-
          </div>
        </div>
   </div>

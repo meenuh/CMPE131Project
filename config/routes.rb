@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get 'addbook', to: 'books#new', as: 'addbook'
   get 'sellbook', to: 'transactions#new', as: 'sellbook'
 
+  get 'buybook', to: 'transactions#buy', as: 'buybook'
+
 
 
   root 'schools#show'
