@@ -38,6 +38,13 @@ body {
   background: #000 url("SJSU-724575.jpg");
 }
 
+#UCLA{
+  background: #000 url("ucla.png");
+}
+
+#UCB{
+  background: #000 url("cal.png");
+}
 
 .latest-jobs h3 {
     text-align: center;
