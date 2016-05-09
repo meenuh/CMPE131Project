@@ -1,10 +1,10 @@
 
 
 
-  <div class="jumbotron jumbotron-fluid">
+  <div id=<%= current_student.school.name.gsub(/\s+/, "")%> class="jumbotron jumbotron-fluid">
 		<div class="container-fluid">
 
-            <h2>Welcome to <%= current_student.school.name %></h2>
+            <h2 id=<%= current_student.school.name.gsub(/\s+/, "")%>Header>Welcome to <%= current_student.school.name %></h2>
 
 
         <%= form_tag url_for(:controller => 'transactions', :action => 'search'), class:"form-group input-group center-block", style:"max-width: 400px;", :method => 'get' do |f| %>

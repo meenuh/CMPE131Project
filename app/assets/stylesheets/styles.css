@@ -34,6 +34,38 @@ body {
     background-size: cover;
 }
 
+#SanJoseStateUniversity{
+  background: #FFF no-repeat url("sjsu3.png") center top;
+  background-size: cover;
+}
+
+#UCLA{
+  background: #5d74a5 no-repeat url("ucla3.jpg") center center;
+  background-size: cover;
+}
+
+#UCB{
+  background: no-repeat #003057 url("ucb5.jpg") center bottom;
+  background-size: cover;
+  
+}
+
+#SanJoseStateUniversityHeader{
+  color:#0055A2;
+}
+
+#UCBHeader{
+  /*font-weight: bolder;*/
+  color:#EFB82B;
+  /*font-family: arial;*/
+}
+
+#UCLAHeader{
+  font-family: arial;
+  font-weight: bolder;
+  color:#ffcc00;
+}
+
 .latest-jobs h3 {
     text-align: center;
 }

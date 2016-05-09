@@ -48,7 +48,7 @@ class StudentsController < ApplicationController
         render "new"
       end
     else
-      flash.now.alert = "Sorry, we dont recognize your email domain"
+      flash.now.alert = "Sorry, we don't recognize your email domain"
       render "new"
     end
   end
