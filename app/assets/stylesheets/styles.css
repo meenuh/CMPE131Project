@@ -35,18 +35,18 @@ body {
 }
 
 #SanJoseStateUniversity{
-  background: #FFF no-repeat url("san_jose_state.png") left center;
-  background-size: contain;
+  background: #FFF no-repeat url("sjsu3.png") center top;
+  background-size: cover;
 }
 
 #UCLA{
-  background: #5d74a5 no-repeat url("ucla-bruins.png") right center;
-  background-size: contain;
+  background: #5d74a5 no-repeat url("ucla3.jpg") center center;
+  background-size: cover;
 }
 
 #UCB{
-  background: no-repeat #003057 url("cal.png") left center;
-  background-size: contain;
+  background: no-repeat #003057 url("ucb5.jpg") center bottom;
+  background-size: cover;
   
 }
 
