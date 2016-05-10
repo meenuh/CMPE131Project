@@ -169,6 +169,14 @@ body {
   border-bottom-left-radius: 0;
 }
 
+#email{
+  width:20%;
+}
+
+#password{
+  width: 20%;
+}
+
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
