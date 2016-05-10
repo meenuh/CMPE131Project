@@ -16,6 +16,10 @@ body {
     width:120px;
 }
 
+#homeButton {
+  margin-top: 10px;
+}
+
 /* Index page */
 
 .jumbotron {
