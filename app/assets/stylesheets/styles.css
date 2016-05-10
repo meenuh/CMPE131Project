@@ -10,10 +10,11 @@ body {
 .navbar-brand {
     padding: 10px;
 }
+
 #directions{
   color: #ffffff;
   font-size: 15px;
-  font-weight: bol;
+  font-weight: bold;
   font-family: helvetica;
   letter-spacing: 0px;
 }
@@ -50,8 +51,13 @@ body {
     background-size: cover;
 }
 
+#welcomeMsg{
+  bottom:0px;
+  right: 0px;
+}
+
 #SanJoseStateUniversity{
-  background: #FFF no-repeat url("sjsu3.png") center top;
+  background: #FFF no-repeat url("sjsu3.png") center -20%;
   background-size: cover;
 }
 
