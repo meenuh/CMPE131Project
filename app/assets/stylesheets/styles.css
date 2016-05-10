@@ -11,9 +11,26 @@ body {
     padding: 10px;
 }
 
+#directions{
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: helvetica;
+  letter-spacing: 0px;
+}
+
+#navBarUpper {
+  background-color: #428BCA;
+  background: #000 url("books3.jpg") center bottom;
+}
+
 .navbar-brand img {
     height:30px;
     width:120px;
+}
+
+#homeButton {
+  margin-top: 10px;
 }
 
 /* Index page */
@@ -34,8 +51,13 @@ body {
     background-size: cover;
 }
 
+#welcomeMsg{
+  bottom:0px;
+  right: 0px;
+}
+
 #SanJoseStateUniversity{
-  background: #FFF no-repeat url("sjsu3.png") center top;
+  background: #FFF no-repeat url("sjsu3.png") center -7%;
   background-size: cover;
 }
 
@@ -145,6 +167,14 @@ body {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+#email{
+  width:20%;
+}
+
+#password{
+  width: 20%;
 }
 
 .form-signin input[type="password"] {
@@ -359,4 +389,43 @@ footer {
 
 footer p {
   margin-bottom: .25rem;
+}
+
+/*for about page*/
+.aboutCards{
+  display:flex;
+  width:auto;
+  flex-wrap: nowrap;
+}
+
+#mina{
+  background: #FF8A80;
+}
+
+#imgPosition{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#textPosition{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#philipp{
+  background: #C5E1A5;
+}
+
+#fernando{
+  background: #80DEEA;
+}
+
+#alex{
+  background: #FFB74D;
+}
+
+#jc{
+  background: #4DB6AC;
 }

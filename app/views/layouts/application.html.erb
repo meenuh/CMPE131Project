@@ -10,7 +10,7 @@
 <body >
   <header>
 
-  	<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="UserController as userCtrl">
+  	<nav id="navBarUpper" class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="UserController as userCtrl">
   		<div class="container-fluid">
 
   			<!-- Brand and toggle get grouped for better mobile display -->
@@ -24,7 +24,7 @@
   				<a type="button" class="navbar-brand">
   					<!-- <img alt="Brand" src="/app/assets/images/bookbag.png"> -->
             <% if current_student %>
-            <%= link_to 'BookBag', current_student.school, class: "btn btn-default"%>
+            <%= link_to 'BookBag', current_student.school, class: "btn btn-default", id: "homeButton"%>
             <% end %>
   				</a>
   			</div>
@@ -36,7 +36,7 @@
   					<% if current_student %>
   						<li class="dropdown">
   							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-  								<img src="http://placehold.it/24x24" class="profile-image img-circle"> <%- current_student.name %> <span class="caret"></span>
+  								<img src="http://placehold.it/24x24" class="profile-image img-circle"><span id="directions"> <%= current_student.name%></span> <span class="caret"></span>
   							</a>
   							<ul class="dropdown-menu">
   								<li><%= link_to 'Profile', profile_path(:profile => true )%></li>
@@ -49,10 +49,10 @@
   							</ul>
   						</li>
   					<% else %>
-  						<li><a href="/login">Signin</a></li>
-  						<li><a href="/signup">Sign Up</a></li>
+  						<li><a id="directions" href="/login">LOG IN</a></li>
+  						<li><a id="directions" href="/signup">REGISTER</a></li>
   					<% end %>
-  					<li><a href="#">About</a></li>
+  					<li><a id="directions" href="/about">ABOUT</a></li>
   				</ul>
 
   			</div><!-- /.navbar-collapse -->
