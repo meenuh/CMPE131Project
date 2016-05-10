@@ -7,6 +7,6 @@
   <% if @student == current_student %>
       </td><%= link_to 'Delete', transaction, method: :destroy, data: {confirm: 'Are you sure?'}, class: "btn btn-default" %></td>
   <% else %>
-      <div style = " margin: 0 auto;  "> <%= link_to 'Buy', buybook_path(), class: "btn btn-success", style: "color: #ffffff;" %></div>
+      <div style = " margin: 0 auto;  "> <%= link_to 'Buy', buybook_path(:transaction_id => transaction.id), class: "btn btn-success", style: "color: #ffffff;" %></div>
   <% end %>
 </div>

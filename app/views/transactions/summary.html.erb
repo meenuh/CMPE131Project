@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Transcation Summary</h2>
+  <div class="panel panel-default">
+
+    <div class="panel-body">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          Details
+        </div>
+        <h5>Book: <%= @transaction.book.title%></h5>
+        <h5>Seller: <%= Student.find(@transaction.seller_id).name%></h5>
+        <h5>Buyer: <%= Student.find(@transaction.buyer_id).name%></h5>
+        <h5>Price: $<%= @transaction.price %></h5>
+        <h5>Paymenet method: Credit Card</h5>
+      </div>
+      <%= link_to 'Home', current_student.school, class: "btn btn-default", id: "homeButton"%>
+    </div>
+  </div>
+</div>
