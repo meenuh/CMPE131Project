@@ -1,37 +1,80 @@
 <div class="page-header">
-  <h1>Profile</h1>
+   
+  <h1 id="student-header" align="center"><%= @student.name %>'s Profile</h1>
+
 </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @student.name %>
-</p>
 
-<p>
-  <strong>Major:</strong>
-  <%= @student.major %>
-</p>
 
-<p>
-  <strong>Email Adress:</strong>
-  <%= @student.email %>
-</p>
 
-<% if @student == current_student %>
-    <%= link_to 'Edit', edit_student_path(@student), class: "btn btn-default" %>
-    <h3>My Books</h3>
-<% else %>
-    <h3><%= @student.name %>'s Books</h3>
-<% end %>
+  
+<div class= "picture-block">
 
-<div class="container-fluid">
-  <div class="album text-muted">
-       <div class="container">
-         <div class="row">
-             <%= render @student.transactions %>
-        </div>
-      </div>
-  </div>
+
+
+	<div class="school-image"><img src= "http://content.sportslogos.net/logos/34/828/full/ffb1ucj7ud0h0io3lle8ozwnq.gif" /></div>
+
+	<div class="profile-pic"> </div>
+	
 </div>
 
-<%= link_to 'Back', @student.school, class: "btn btn-default" %>
+<div class="student-content">
+
+	<div  class= "profile-block">
+
+
+		<p>
+		  <strong>Name:</strong>
+		  <%= @student.name %>
+		</p>
+
+		<p>
+		  <strong>Major:</strong>
+		  <%= @student.major %>
+		</p>
+
+		<p>
+		  <strong>Email Adress:</strong>
+		  <%= @student.email %>
+
+		</p>
+		
+		<% if @student == current_student %>
+			<%= link_to 'Edit Profile', edit_student_path(@student), class: "btn btn-default" %>
+		<%end%>
+	
+	
+	</div>
+	
+	
+	<div class="book-block">
+		<% if @student == current_student %>
+		
+		<h3 align="center">My Books</h3>
+	<% else %>
+		<h3 align="center"><%= @student.name %>'s Books</h3>
+	<% end %>
+		<div class="book-container-fluid">
+		  <div class="album text-muted">
+			   <div class="container">
+				 <div class="row">
+					 <%= render @student.transactions %>
+				</div>
+			  </div>
+		  </div>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+<div class="footer">
+
+	<%= link_to 'Back', @student.school, class: "btn btn-default" %>
+	
+</div>
