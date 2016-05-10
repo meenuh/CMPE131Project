@@ -10,17 +10,17 @@ body {
 .navbar-brand {
     padding: 10px;
 }
-
-#navBarUpper {
-  background-color: #428BCA;
-}
-
 #directions{
   color: #ffffff;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: bol;
   font-family: helvetica;
   letter-spacing: 0px;
+}
+
+#navBarUpper {
+  background-color: #428BCA;
+  background: #000 url("books3.jpg") center bottom;
 }
 
 .navbar-brand img {
