@@ -18,9 +18,9 @@ body {
 #directions{
   color: #ffffff;
   font-size: 15px;
-  font-weight: bolder;
+  font-weight: bold;
   font-family: helvetica;
-  letter-spacing: -1px;
+  letter-spacing: 0px;
 }
 
 .navbar-brand img {
