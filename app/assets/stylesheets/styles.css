@@ -11,6 +11,18 @@ body {
     padding: 10px;
 }
 
+#navBarUpper {
+  background-color: #428BCA;
+}
+
+#directions{
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bolder;
+  font-family: helvetica;
+  letter-spacing: -1px;
+}
+
 .navbar-brand img {
     height:30px;
     width:120px;
