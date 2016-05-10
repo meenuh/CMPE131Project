@@ -12,6 +12,16 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def summary
+    @transaction = Transaction.find(params[:transaction_id])
+  end
+  def buy
+
+    @transaction = Transaction.find(params[:transaction_id])
+    @transaction.buyer_id = current_student.id
+      Rails.logger.debug("My object:  #{@transaction.buyer_id}")
+    @transaction.save
+  end
 
   def create
 
@@ -22,9 +32,7 @@ class TransactionsController < ApplicationController
     end
   end
 
-def buy
 
-end
 
 
   def destroy
