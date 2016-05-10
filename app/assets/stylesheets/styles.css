@@ -390,3 +390,42 @@ footer {
 footer p {
   margin-bottom: .25rem;
 }
+
+/*for about page*/
+.aboutCards{
+  display:flex;
+  width:auto;
+  flex-wrap: nowrap;
+}
+
+#mina{
+  background: #FF8A80;
+}
+
+#imgPosition{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#textPosition{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#philipp{
+  background: #C5E1A5;
+}
+
+#fernando{
+  background: #80DEEA;
+}
+
+#alex{
+  background: #FFB74D;
+}
+
+#jc{
+  background: #4DB6AC;
+}

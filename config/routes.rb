@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 #  get 'search', to: 'book#search', as: 'search'
 
-
+  get 'about', to: 'about#show', as: 'about'
   get 'signup', to: 'students#new', as: 'signup'
 
   get 'login', to: 'sessions#new', as: 'login'
