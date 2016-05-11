@@ -12,16 +12,19 @@ class TransactionsController < ApplicationController
     end
   end
 
+
   def summary
     @transaction = Transaction.find(params[:transaction_id])
   end
-  def buy
 
+
+  def buy
     @transaction = Transaction.find(params[:transaction_id])
     @transaction.buyer_id = current_student.id
       Rails.logger.debug("My object:  #{@transaction.buyer_id}")
     @transaction.save
   end
+
 
   def create
 
@@ -31,8 +34,6 @@ class TransactionsController < ApplicationController
       render new, alert: 'Error creating book.'
     end
   end
-
-
 
 
   def destroy
@@ -46,7 +47,6 @@ class TransactionsController < ApplicationController
 
 
   def search
-
     array = []
     Transaction.find_each do |t|
       curr_book = Book.find(t.book_id)
@@ -74,6 +74,6 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:price, :book_id)
+    params.require(:transaction).permit(:price, :book_id, :sold)
   end
 end
